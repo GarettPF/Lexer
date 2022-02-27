@@ -1,0 +1,14 @@
+#program start#
+
+	integer int1 = 10;
+
+	decimal userInput;
+
+	print "please enter a number";
+
+#reading the user's input#
+	read userInput;
+
+	decimal result = int1 + userInput;
+
+	print 'calculation result: \userInput + \int1 = \result ';
