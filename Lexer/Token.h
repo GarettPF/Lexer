@@ -11,18 +11,29 @@ class Token {
 			string,
 			integer,
 			decimal,
-			text,
-			letter,
-			nonZero,
-			number,
-			symbol,
+			comment,
 			op,
-			eos
+			eos,
+			null
 		};
 
-		Token(Kind k, string v) : kind(k), value(v) {};
+		Token(Kind k, string l) : kind(k), lexeme(l) {};
+
+		string getKind() {
+			string kindString[] = {
+				"keyword", "identifier", "string", "integer", "decimal",
+				"comment", "operator", "eos"
+			};
+			return kindString[(int)kind];
+		}
+
+		string getLexeme() {
+			if (kind == Kind::string)
+				return lexeme.substr(1, lexeme.length() - 2);
+			return lexeme;
+		}
 
 	private:
 		Kind kind;
-		string value;
+		string lexeme;
 };

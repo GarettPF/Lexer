@@ -15,7 +15,11 @@ int main() {
 	if (!src->is_open())
 		return -1;
 
-
+	Lexer lexer(src);
+	while (lexer.getNext())
+		lexer.parse();
+	lexer.parse();
+	lexer.print();
 
 	return 0;
 }
